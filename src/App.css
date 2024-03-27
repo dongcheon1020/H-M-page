@@ -1,0 +1,33 @@
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+.nav-section {
+  display: grid;
+  place-items: center;
+}
+.menu {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+}
+.menu-area {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.search {
+  position: absolute;
+  right: 20px;
+
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+#search-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
