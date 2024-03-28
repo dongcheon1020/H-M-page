@@ -1,7 +1,13 @@
+.login-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 .login-button {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   margin: 20px;
+  cursor: pointer;
 }
 .nav-section {
   display: grid;
@@ -30,4 +36,16 @@
   border: none;
   outline: none;
   font-size: 16px;
+}
+.card-img {
+  width: 100%;
+}
+.cards {
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.cards:hover {
+  transform: scale(1.02);
 }
