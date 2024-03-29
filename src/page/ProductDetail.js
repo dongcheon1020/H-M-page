@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [option, setOption] = useState(null);
   const getProductDetail = async () => {
-    let url = `http://localhost:4000/products/${id}`;
+    let url = `my-json-server.typicode.com/dongcheon1020/H-M-page/products?q=${searchQuery}`;
     let response = await fetch(url);
     let data = await response.json();
     setProduct(data);
@@ -28,7 +28,7 @@ const ProductDetail = () => {
           <div>{"￦ " + product?.price}</div>
           <div>Consclous choice</div>
           <div>
-            <DropdownButton title="사이즈 선택">
+            <DropdownButton id="dropdown-basic-button" title="사이즈 선택">
               {option?.map((item, index) => (
                 <Dropdown.Item key={index}>{item}</Dropdown.Item>
               ))}
