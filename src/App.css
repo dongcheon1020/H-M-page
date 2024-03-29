@@ -49,3 +49,65 @@
 .cards:hover {
   transform: scale(1.02);
 }
+.product-img {
+  display: flex;
+  justify-content: flex-end;
+}
+.add-bt {
+  background-color: #1d1d1f;
+  color: #fff;
+  width: 100%;
+}
+.logo {
+  cursor: pointer;
+}
+
+.ham-bar {
+  height: 20px;
+  cursor: pointer;
+}
+.logo-m {
+  cursor: pointer;
+}
+.m-section {
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .logo {
+    display: none;
+  }
+  .login-section {
+    justify-content: space-between;
+    padding: 0 30px;
+  }
+  .m-section {
+    display: flex;
+    gap: 15px;
+  }
+  .menu-area {
+    display: none;
+  }
+}
+.menu-area-m {
+  position: fixed;
+  width: 80%;
+  height: 100%;
+  background-color: #ffffffc5;
+  -webkit-backdrop-filter: saturate(1.8) blur(20px);
+  top: 0;
+  left: 0;
+  padding: 50px;
+  box-sizing: border-box;
+}
+.menu-m {
+  list-style-type: none;
+}
+.menu-m > li {
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: fit-content;
+}
+.menu-m > li:hover {
+  text-decoration: underline;
+}

@@ -1,7 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Container, Col, Row, DropdownButton, Dropdown } from "react-bootstrap";
 
 const ProductDetail = () => {
-  return <div>상품 상세 페이지</div>;
+  let { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [option, setOption] = useState(null);
+  const getProductDetail = async () => {
+    let url = `http://localhost:4000/products/${id}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    setProduct(data);
+    setOption(data.size);
+  };
+
+  useEffect(() => {
+    getProductDetail();
+  }, []);
+  return (
+    <Container>
+      <Row>
+        <Col className="product-img">
+          <img src={product?.img} />
+        </Col>
+        <Col>
+          <div>{product?.title}</div>
+          <div>{"￦ " + product?.price}</div>
+          <div>Consclous choice</div>
+          <div>
+            <DropdownButton title="사이즈 선택">
+              {option?.map((item, index) => (
+                <Dropdown.Item key={index}>{item}</Dropdown.Item>
+              ))}
+            </DropdownButton>
+          </div>
+          <div>
+            <button className="add-bt">추가</button>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default ProductDetail;
