@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Col, Row, DropdownButton, Dropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { productAction } from "../redux/actions/productAction";
 
 const ProductDetail = () => {
   let { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [option, setOption] = useState(null);
+
+  const product = useSelector((state) => state.product.selectedItem);
+  const dispatch = useDispatch();
   const getProductDetail = async () => {
-    let url = `http://my-json-server.typicode.com/dongcheon1020/H-M-page/products/${id}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProduct(data);
-    setOption(data.size);
+    dispatch(productAction.getProductDetail(id));
   };
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const ProductDetail = () => {
           <div>Consclous choice</div>
           <div>
             <DropdownButton id="dropdown-basic-button" title="사이즈 선택">
-              {option?.map((item, index) => (
+              {product?.size.map((item, index) => (
                 <Dropdown.Item key={index}>{item}</Dropdown.Item>
               ))}
             </DropdownButton>

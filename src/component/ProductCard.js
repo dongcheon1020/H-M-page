@@ -9,7 +9,6 @@ const ProductCard = ({ item }) => {
   return (
     <div className="cards" onClick={showDetail}>
       <img className="card-img" src={item?.img} />
-      <div>Consoidifsjklf sdfk</div>
       <div>{item?.title}</div>
       <div>{"￦ " + item?.price}</div>
       <div>{item?.new === true ? "신제품" : ""}</div>
